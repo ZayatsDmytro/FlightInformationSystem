@@ -1,3 +1,5 @@
+using FlightStorageService.Repositories;
+using FlightStorageService.Services;
 using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,10 @@ builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+builder.Services.AddScoped<IFlightService, FlightService>();
 
 var app = builder.Build();
 

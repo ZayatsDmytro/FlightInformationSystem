@@ -45,7 +45,7 @@ ELSE PRINT('Incorrect date')
 END
 GO
 
-CREATE PROCEDURE CleanUpOldflights
+CREATE PROCEDURE CleanUpOldFlights
 AS
 BEGIN
 	DELETE FROM Flights
@@ -53,7 +53,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetFlightByArrivalCityAndDate
+CREATE PROCEDURE GetFlightsByArrivalCityAndDate
 	@City nvarchar(100),
 	@Date DATE
 AS
@@ -64,7 +64,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE GetFlightByDate
+CREATE PROCEDURE GetFlightsByDate
 	@Date DATE
 AS 
 BEGIN
