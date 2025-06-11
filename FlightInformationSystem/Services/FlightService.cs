@@ -12,19 +12,26 @@ namespace FlightStorageService.Services
             _repository = repository;
         }
 
-        public Task<Flight?> GetFlightByNumberAsync(string flightNumber)
+        public Task<Flight?> GetFlightByNumberAsync(string? flightNumber)
         {
-            return string.IsNullOrWhiteSpace(flightNumber) ? 
-                throw new ArgumentException("Flight number cannot be empty.", nameof(flightNumber)) : 
-                _repository.GetFlightByNumberAsync(flightNumber);
+            if (string.IsNullOrWhiteSpace(flightNumber))
+            {
+                throw new ArgumentException("Flight number cannot be empty.");
+            }
+            else if (flightNumber.Length > 10)
+            {
+                throw new ArgumentException("Flight number cannot be longer than ten characters.");
+            }
+
+           return _repository.GetFlightByNumberAsync(flightNumber);
 
         }
 
-        public Task<IEnumerable<Flight>> GetFlightsByArrivalCityAndDateAsync(string city, DateOnly date)
+        public Task<IEnumerable<Flight>> GetFlightsByArrivalCityAndDateAsync(string? city, DateOnly date)
         {
             if (string.IsNullOrWhiteSpace(city))
             {
-                throw new ArgumentException("There is no flight to entered city.", city);
+                throw new ArgumentException("City parameter cannot be empty.", city);
             }
             var today = DateOnly.FromDateTime(DateTime.UtcNow);
             if (date < today || date > today.AddDays(7))
@@ -46,11 +53,11 @@ namespace FlightStorageService.Services
             return _repository.GetFlightsByDateAsync(date);
         }
 
-        public Task<IEnumerable<Flight>> GetFlightsByDepartureCityAndDateAsync(string city, DateOnly date)
+        public Task<IEnumerable<Flight>> GetFlightsByDepartureCityAndDateAsync(string? city, DateOnly date)
         {
             if(string.IsNullOrWhiteSpace(city))
             {
-                throw new ArgumentException("There is no flight from entered city.",city);
+                throw new ArgumentException("City parameter cannot be empty.", city);
             }
             var today = DateOnly.FromDateTime(DateTime.UtcNow);
             if (date < today || date > today.AddDays(7))

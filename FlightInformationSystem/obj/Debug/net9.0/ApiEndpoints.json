@@ -71,7 +71,7 @@
   },
   {
     "ContainingType": "FlightStorageService.Controllers.FlightsController",
-    "Method": "GetByArrival",
+    "Method": "GetByArrivalAndDate",
     "RelativePath": "api/Flights/arrival",
     "HttpMethod": "GET",
     "IsController": true,
@@ -102,7 +102,7 @@
   },
   {
     "ContainingType": "FlightStorageService.Controllers.FlightsController",
-    "Method": "GetByDeparture",
+    "Method": "GetByDepartureAndDate",
     "RelativePath": "api/Flights/departure",
     "HttpMethod": "GET",
     "IsController": true,

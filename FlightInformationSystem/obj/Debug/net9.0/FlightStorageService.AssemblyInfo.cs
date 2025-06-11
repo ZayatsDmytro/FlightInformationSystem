@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlightStorageService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d03e0f154e1be3393d2c48ed04b9c4cf0be328df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9b22367980ac8c6a4543b7415dc62eaa34c8d6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlightStorageService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlightStorageService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

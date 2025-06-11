@@ -12,7 +12,7 @@ namespace FlightStorageService.Repositories
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         }
-        public async Task<Flight?> GetFlightByNumberAsync(string flightNumber)
+        public async Task<Flight?> GetFlightByNumberAsync(string? flightNumber)
         {
             await using var connection = new SqlConnection(_connectionString);
             await using var command = new SqlCommand("dbo.GetFlightByNumber", connection)

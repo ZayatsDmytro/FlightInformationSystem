@@ -21,7 +21,7 @@ namespace FlightStorageService.Controllers
         [ProducesResponseType(typeof(Flight), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> GetByFlightNumber([FromRoute] string flightNumber)
+        public async Task<IActionResult> GetByFlightNumber([FromRoute] string? flightNumber)
         {
             try
             {
@@ -34,29 +34,51 @@ namespace FlightStorageService.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet()]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
         public async Task<IActionResult> GetByDate([FromQuery] DateOnly date)
         {
-            var flights = await _flightService.GetFlightsByDateAsync(date);
-            return Ok(flights);
+            try
+            {
+                var flights = await _flightService.GetFlightsByDateAsync(date);
+                return Ok(flights);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpGet("departure")]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
-        public async Task<IActionResult> GetByDeparture([FromQuery] string city, [FromQuery] DateOnly date)
+        public async Task<IActionResult> GetByDepartureAndDate([FromQuery] string? city, [FromQuery] DateOnly date)
         {
-            var flights = await _flightService.GetFlightsByDepartureCityAndDateAsync(city, date);
-            return Ok(flights);
+            try
+            {
+                var flights = await _flightService.GetFlightsByDepartureCityAndDateAsync(city, date);
+                return Ok(flights);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
 
         [HttpGet("arrival")]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
-        public async Task<IActionResult> GetByArrival([FromQuery] string city, [FromQuery] DateOnly date)
+        public async Task<IActionResult> GetByArrivalAndDate([FromQuery] string? city, [FromQuery] DateOnly date)
         {
-            var flights = await _flightService.GetFlightsByArrivalCityAndDateAsync(city, date);
-            return Ok(flights);
+            try
+            {
+                var flights = await _flightService.GetFlightsByArrivalCityAndDateAsync(city, date);
+                return Ok(flights);
+            }
+            catch (ArgumentException ex)
+            {
+
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }
