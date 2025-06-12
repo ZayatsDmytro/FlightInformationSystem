@@ -1,10 +1,95 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Flight Search";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Flight Information System</h1>
+    <p>Search for flights using the forms below.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <form method="get" class="card">
+            <div class="card-header"><h5>Search by Flight Number</h5></div>
+            <div class="card-body">
+                <input type="hidden" name="SearchType" value="byNumber" />
+                <div class="form-group">
+                    <label asp-for="FlightNumber" class="form-label"></label>
+                    <input asp-for="FlightNumber" class="form-control" placeholder="e.g., PS101" />
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12 mb-4">
+        <form method="get" class="card">
+            <div class="card-header"><h5>Search by Date and City</h5></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label asp-for="SearchDate" class="form-label">Date</label>
+                        <input asp-for="SearchDate" type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label asp-for="City" class="form-label">City (optional)</label>
+                        <input asp-for="City" class="form-control" placeholder="e.g., Kyiv" />
+                    </div>
+                </div>
+                <div class="btn-group mt-3 w-100" role="group">
+                    <button type="submit" class="btn btn-info" name="SearchType" value="byDate">By Date Only</button>
+                    <button type="submit" class="btn btn-success" name="SearchType" value="byDeparture">By Departure City</button>
+                    <button type="submit" class="btn btn-warning" name="SearchType" value="byArrival">By Arrival City</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+
+<div id="results-area">
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            <strong>Error:</strong> @Model.ErrorMessage
+        </div>
+    }
+    else if (Model.SearchResults.Any())
+    {
+        <h3>Search Results</h3>
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Departure Time</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Duration (min)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var flight in Model.SearchResults)
+                {
+                    <tr>
+                        <td>@flight.FlightNumber</td>
+                        <td>@flight.DepartureDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@flight.DepartureAirportCity</td>
+                        <td>@flight.ArrivalAirportCity</td>
+                        <td>@flight.DurationMinutes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else if (!string.IsNullOrEmpty(Model.SearchType))
+    {
+        <div class="alert alert-warning">
+            No flights found for the specified criteria.
+        </div>
+    }
+
 </div>

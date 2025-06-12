@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlightClientApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae0c9428af61ee651091fea3df647a250d2dce34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f654e581d415bafdde9361f2e1395a5b8a3f5e87")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlightClientApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlightClientApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

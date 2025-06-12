@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Dima\\Desktop\\Learning\\Projects\\FlightInformationSystem\\FlightClientApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\FlightStorageService.bundle.scp.css",
-      "PackagePath": "staticwebassets\\FlightStorageService.p2mx7d1qpk.bundle.scp.css"
+      "Id": "C:\\Users\\Dima\\Desktop\\Learning\\Projects\\FlightInformationSystem\\FlightClientApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\FlightClientApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FlightClientApp.33ynaax33m.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\Dima\\Desktop\\Learning\\Projects\\FlightInformationSystem\\FlightClientApp\\wwwroot\\css\\site.css",
@@ -257,24 +257,24 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FlightStorageService.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FlightClientApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FlightStorageService.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FlightClientApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.FlightStorageService.props",
-      "PackagePath": "build\\FlightStorageService.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.FlightClientApp.props",
+      "PackagePath": "build\\FlightClientApp.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.FlightStorageService.props",
-      "PackagePath": "buildMultiTargeting\\FlightStorageService.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.FlightClientApp.props",
+      "PackagePath": "buildMultiTargeting\\FlightClientApp.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.FlightStorageService.props",
-      "PackagePath": "buildTransitive\\FlightStorageService.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.FlightClientApp.props",
+      "PackagePath": "buildTransitive\\FlightClientApp.props"
     }
   ],
   "ElementsToRemove": []

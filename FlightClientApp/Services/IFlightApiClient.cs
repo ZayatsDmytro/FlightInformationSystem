@@ -6,7 +6,7 @@ namespace FlightClientApp.Services
     {
         Task<Flight?> GetFlightByNumberAsync(string flightNumber);
         Task<IEnumerable<Flight>> GetFlightsByDateAsync(DateOnly date);
-        Task<IEnumerable<Flight>> GetFlightsByDepartureAsync(string? city, DateOnly date);
-        Task<IEnumerable<Flight>> GetFlightsByArrivalAsync(string? city, DateOnly date);
+        Task<IEnumerable<Flight>> GetFlightsByDepartureAsync(string city, DateOnly date);
+        Task<IEnumerable<Flight>> GetFlightsByArrivalAsync(string city, DateOnly date);
     }
 }
