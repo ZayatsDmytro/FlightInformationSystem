@@ -23,6 +23,7 @@ namespace FlightStorageService.Controllers
         [ProducesResponseType(typeof(Flight), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetByFlightNumber([FromRoute] string? flightNumber)
         {
             _logger.LogInformation("Processing request: GET /api/flights/{FlightNumber}", flightNumber);
@@ -51,6 +52,9 @@ namespace FlightStorageService.Controllers
 
         [HttpGet()]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetByDate([FromQuery] DateOnly date)
         {
             _logger.LogInformation("Processing request: GET /api/flights?date={Date}", date);
@@ -74,6 +78,9 @@ namespace FlightStorageService.Controllers
 
         [HttpGet("departure")]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetByDepartureAndDate([FromQuery] string? city, [FromQuery] DateOnly date)
         {
             _logger.LogInformation("Processing request: GET /api/flights/departure?city={City}&date={Date}", city, date);
@@ -98,6 +105,9 @@ namespace FlightStorageService.Controllers
 
         [HttpGet("arrival")]
         [ProducesResponseType(typeof(IEnumerable<Flight>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetByArrivalAndDate([FromQuery] string? city, [FromQuery] DateOnly date)
         {
             _logger.LogInformation("Processing request: GET /api/flights/arrival?city={City}&date={Date}", city, date);

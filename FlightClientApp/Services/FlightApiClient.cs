@@ -19,7 +19,6 @@ namespace FlightClientApp.Services
             if (!response.IsSuccessStatusCode)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
-
                 try
                 {
                     var errorObject = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
