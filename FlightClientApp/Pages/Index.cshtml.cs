@@ -52,7 +52,7 @@ namespace FlightClientApp.Pages
             }
             catch (HttpRequestException ex)
             {
-                ErrorMessage = $"API Error: {ex.Message}";
+                ErrorMessage = $"{ex.Message}";
             }
             catch (Exception ex)
             {

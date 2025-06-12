@@ -482,3 +482,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Виключення для Docker
+.dockerignore
+docker-compose.override.yml
