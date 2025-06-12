@@ -1,15 +1,12 @@
 services:
-  # 1. Сервіс Бази Даних
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Your_Strong_Password123!
-      # ConnectionString тут не потрібен, бо база даних не підключається сама до себе
     ports:
       - "1434:1433"
 
-  # 2. Сервіс API (Бекенд)
   api:
     build:
       context: .
@@ -17,13 +14,11 @@ services:
     ports:
       - "5000:8080"
     environment:
-      # --- ПЕРЕНЕСЛИ РЯДОК СЮДИ ---
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=db;Database=FlightsDb;User Id=sa;Password=Your_Strong_Password123!;TrustServerCertificate=True;
     depends_on:
       - db
 
-  # 3. Сервіс UI (Фронтенд)
   ui:
     build:
       context: .
@@ -31,7 +26,6 @@ services:
     ports:
       - "5001:8080"
     environment:
-      # Для UI теж можна вказати Development, якщо потрібно
       - ASPNETCORE_ENVIRONMENT=Development
       - FlightApiServiceUrl=http://api:8080
     depends_on:
